@@ -5,44 +5,26 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      User.hasMany(models.StudyPlan, { foreignKey: 'createdBy', onDelete: 'CASCADE' });
     }
   }
   User.init({
     username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [4, 30],
-        isNotEmail(value) {
-          if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.');
-          }
-        }
-      }
+      type: DataTypes.STRING(30),
+      allowNull: false
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(256),
       allowNull: false,
-      validate: {
-        len: [3, 256]
-      }
+      unique: true
     },
     hashedPassword: {
-      type: DataTypes.STRING.BINARY,
-      allowNull: false,
-      validate: {
-        len: [60, 60]
-      }
+      type: DataTypes.STRING,
+      allowNull: false
     },
     profileImg: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false,
       defaultValue: ''
     }

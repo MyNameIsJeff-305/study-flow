@@ -1,37 +1,26 @@
 'use strict';
-
-let options = {};
-options.tableName = 'Users';
-if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;
-}
-
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable(options, {
+    await queryInterface.createTable('Exercises', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      exercise: {
         allowNull: false,
-        type: Sequelize.STRING(30)
+        type: Sequelize.STRING(256)
       },
-      email: {
+      studyPlanId: {
         allowNull: false,
-        type: Sequelize.STRING(256),
-        unique: true
-      },
-      hashedPassword: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      profileImg: {
-        allowNull: false,
-        type: Sequelize.STRING(255),
-        defaultValue: ''
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'StudyPlans',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -43,10 +32,9 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    }, options);
+    });
   },
-
   async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable(options);
+    await queryInterface.dropTable('Exercises');
   }
 };
