@@ -13,7 +13,7 @@
     "magic": "npm run migrate && npm run seed",
     "start:development": "nodemon ./bin/www",
     "start:production": "dotenv node ./bin/www",
-    "build": "dotenv -e .env node psql-setup-script.js"
+    "build": "dotenv node psql-setup-script.js"
   },
   "keywords": [],
   "author": "",
