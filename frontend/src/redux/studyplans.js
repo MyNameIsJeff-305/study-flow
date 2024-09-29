@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 //Constants
 const GET_ALL_STUDYPLANS = 'studyplans/getAllStudyplans';
 const GET_MY_STUDYPLANS = 'studyplans/getOneStudyplan';
@@ -39,25 +41,25 @@ const deleteStudyplan = (studyplan) => ({
 
 //Thunks
 export const fetchAllStudyplans = () => async (dispatch) => {
-    const res = await fetch('/api/studyplans/');
+    const res = await csrfFetch('/api/studyplans/');
     const data = await res.json();
     dispatch(getAllStudyplans(data));
 };
 
 export const fetchOneStudyplan = (id) => async (dispatch) => {
-    const res = await fetch(`/api/studyplans/${id}`);
+    const res = await csrfFetch(`/api/studyplans/${id}`);
     const data = await res.json();
     dispatch(getOneStudyplan(data));
 };
 
 export const fetchMyStudyplans = () => async (dispatch) => {
-    const res = await fetch('/api/studyplans/current');
+    const res = await csrfFetch('/api/studyplans/current');
     const data = await res.json();
     dispatch(getMyStudyplans(data));
 }
 
 export const createStudyplan = (studyplan) => async (dispatch) => {
-    const res = await fetch('/api/studyplans/', {
+    const res = await csrfFetch('/api/studyplans/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -69,7 +71,7 @@ export const createStudyplan = (studyplan) => async (dispatch) => {
 };
 
 export const updateStudyplan = (studyplan) => async (dispatch) => {
-    const res = await fetch(`/api/studyplans/${studyplan.id}`, {
+    const res = await csrfFetch(`/api/studyplans/${studyplan.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -81,7 +83,7 @@ export const updateStudyplan = (studyplan) => async (dispatch) => {
 };
 
 export const removeStudyplan = (id) => async (dispatch) => {
-    const res = await fetch(`/api/studyplans/${id}`, {
+    const res = await csrfFetch(`/api/studyplans/${id}`, {
         method: 'DELETE'
     });
     const data = await res.json();

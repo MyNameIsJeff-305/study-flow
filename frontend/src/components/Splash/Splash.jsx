@@ -25,7 +25,9 @@ const Splash = () => {
       <h1>Looking for what to study today?</h1>
       <div className='study-plans-container'>
         {studyplans.map((studyplan) => (
-          <StudyPlanCard key={studyplan.id} studyplan={studyplan} />
+          <div key={studyplan.id} onClick={() => navigate(`/studyplans/${studyplan.id}`)}>
+            <StudyPlanCard key={studyplan.id} studyplan={studyplan} />
+          </div>
         ))}
       </div>
     </div>

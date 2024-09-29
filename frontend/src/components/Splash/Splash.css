@@ -17,12 +17,16 @@
 
 /* Container for the study plans */
 .study-plans-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
-    overflow: scroll;
+    height: 60vh; /* Set a height to allow vertical scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Loader */
 .loader {
     width: 48px;
     height: 48px;
@@ -41,7 +45,7 @@
     }
 
     .study-plans-container {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr; /* Stack the grid items in a single column */
+        height: auto; /* Adjust the height for smaller screens */
     }
 }

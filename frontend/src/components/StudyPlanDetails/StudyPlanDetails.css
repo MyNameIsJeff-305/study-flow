@@ -1,0 +1,48 @@
+.studyplan-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.studyplan-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.studyplan-info {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.studyplan-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.studyplan-info p {
+    margin: 5px 0;
+}
+
+.studyplan-exercises {
+    margin-top: 30px;
+}
+
+.studyplan-exercises h3 {
+    font-size: 1.5rem;
+}
+
+.studyplan-exercises ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.studyplan-exercises li {
+    background-color: #e4e4e4;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}

@@ -1,0 +1,32 @@
+/* Main container for the exercise card */
+.exercise-card-container {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Checkbox styling */
+.exercise-card-container input[type="checkbox"] {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Exercise text styling */
+.exercise-card-container h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+    flex-grow: 1;
+    /* Ensures the text takes up the remaining space */
+}
+
+/* Hover effect */
+.exercise-card-container:hover {
+    background-color: #e4e4e4;
+}
