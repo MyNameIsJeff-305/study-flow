@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "dotenv-cli": "^5.0.1",
     "express-validator": "^7.0.1",
     "lodash": "^4.17.21",
     "validator": "^13.12.0"
