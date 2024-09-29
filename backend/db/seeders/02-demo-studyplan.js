@@ -1,7 +1,7 @@
 'use strict';
 
 let options = {};
-options.tableName = 'StudyPlans';
+options.tableName = 'Studyplans';
 
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
