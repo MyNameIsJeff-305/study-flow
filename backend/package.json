@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db:migrate": "dotenv sequelize-cli db:migrate",
+    "db:migrate": "sequelize-cli db:migrate",
     "db:migrate:undo:all": "dotenv sequelize-cli db:migrate:undo:all",
     "db:seed:all": "dotenv sequelize-cli db:seed:all",
     "db:seed:undo:all": "dotenv sequelize-cli db:seed:undo:all",
