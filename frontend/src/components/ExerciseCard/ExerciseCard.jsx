@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ExerciseCard.css';
-import { addUserExerciseThunk, deleteUserExerciseThunk, fetchCurrentUserUserExercises } from '../../redux/userexercise';
+import { addUserExerciseThunk, fetchCurrentUserUserExercises } from '../../redux/userexercise';
 
 export default function ExerciseCard({ exercise, userId }) {
     const dispatch = useDispatch();

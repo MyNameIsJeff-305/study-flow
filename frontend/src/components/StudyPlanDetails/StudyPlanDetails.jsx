@@ -4,6 +4,8 @@ import { fetchOneStudyplan } from "../../redux/studyplans";
 import { fetchCurrentUserUserExercises } from "../../redux/userexercise";
 import { useParams } from "react-router-dom";
 
+import { FaCalendarCheck, FaBook, FaUser } from "react-icons/fa";
+
 import './StudyPlanDetails.css';
 import ExerciseCard from "../ExerciseCard";
 
@@ -30,17 +32,20 @@ export default function StudyPlanDetails() {
     return (
         <div className="studyplan-details">
             {/* StudyPlan Image */}
-            <div className="studyplan-image">
+            {/* <div className="studyplan-image">
                 <img src={currentStudyplan.imageUrl} alt={currentStudyplan.subject} />
-            </div>
+            </div> */}
 
             {/* StudyPlan Information */}
             <div className="currentStudyplan-info">
-                <h2>{currentStudyplan.goal}</h2>
-                <p><strong>Subject:</strong> {currentStudyplan.subject}</p>
-                <p><strong>Deadline:</strong> {currentStudyplan.deadline}</p>
-                <p><strong>Created By:</strong> {currentStudyplan.User?.username}</p>
-                <p><strong>Created At:</strong> {new Date(currentStudyplan.createdAt).toLocaleDateString()}</p>
+                <h2 style={{ textAlign: "start" }}>{currentStudyplan.goal}</h2>
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "start", gap: "10px" }}>
+                    <p><strong><FaBook /></strong> {currentStudyplan.subject}</p>
+                    <p>|</p>
+                    <p><strong><FaCalendarCheck /></strong> {currentStudyplan.deadline}</p>
+                    <p>|</p>
+                    <p><strong><FaUser /></strong> {currentStudyplan.User?.username}</p>
+                </div>
             </div>
 
             {/* Exercises Section */}
@@ -48,7 +53,7 @@ export default function StudyPlanDetails() {
                 <h3>Exercises</h3>
                 <ul>
                     {currentStudyplan.Exercises?.map((exercise) => (
-                        <ExerciseCard key={exercise.id} exercise={exercise} userId={currentUser.id}/>
+                        <ExerciseCard key={exercise.id} exercise={exercise} userId={currentUser.id} />
                     ))}
                 </ul>
             </div>

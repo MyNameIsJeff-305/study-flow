@@ -4,12 +4,14 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import AddStudyPlan from "../AddStudyPlan/AddStudyPlan";
 
 import './ProfileButton.css';
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
 
@@ -51,6 +53,11 @@ function ProfileButton() {
             <>
               <li>{user.username}</li>
               <li>{user.email}</li>
+              <OpenModalMenuItem 
+                itemText="Create a Study Plan"
+                onItemClick={closeMenu}
+                modalComponent={<AddStudyPlan userId={user.id}/>}
+              />
               <li>
                 <button onClick={logout}>Log Out</button>
               </li>

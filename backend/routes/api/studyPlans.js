@@ -37,8 +37,8 @@ router.get('/:id', async (req, res) => {
 
 // Create a new study plan
 // In your studyPlans.js or relevant route file
-router.post('/', requireAuth, async (req, res) => {
-    const { subject, goal, deadline, createdBy } = req.body;
+router.post('/', requireAuth, async (req, res, next) => {
+    const { subject, goal, deadline, createdBy, imageUrl } = req.body;
 
     try {
         // Step 1: Create the new study plan
@@ -55,9 +55,22 @@ router.post('/', requireAuth, async (req, res) => {
             });
         }
 
-        res.status(201).json(studyPlan);
+        imageUrl && (studyPlan.imageUrl = imageUrl);
+
+        const resultExercises = await Exercise.findAll({
+            where: {
+                studyPlanId: studyPlan.id
+            }
+        });
+
+        const result = {
+            studyPlan,
+            resultExercises
+        }
+
+        res.status(201).json(result);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        next(error);
     }
 });
 
@@ -70,7 +83,7 @@ async function generateExercisesFromAI(subject, goal, deadline) {
             model: 'gpt-4o-mini', // Use the correct model based on your requirements
             // prompt: prompt,
             messages: [{ role: 'system', content: 'You are a Study Plan Exercises generator' }, {
-                role: 'user', content: `Generate 10 exercises for a study plan with the following details:
+                role: 'user', content: `Generate the necessary amount of exercises for a study plan with the following details:
       - Subject: ${subject}
       - Goal: ${goal}
       - Deadline: ${deadline}
@@ -80,6 +93,13 @@ async function generateExercisesFromAI(subject, goal, deadline) {
 
         console.log();
         const exercises = response.choices[0].message.content.trim().split('\n').filter(Boolean);
+
+        for(let exercise of exercises){
+            if(exercise.startsWith('-')){
+                exercise = exercise.slice(1);
+            }
+        }
+
         return exercises;
     } catch (error) {
         console.error('Error with OpenAI API:', error);

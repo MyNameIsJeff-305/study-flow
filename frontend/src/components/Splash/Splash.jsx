@@ -5,24 +5,48 @@ import { fetchAllStudyplans } from '../../redux/studyplans';
 import StudyPlanCard from '../StudyPlanCard/StudyPlanCard';
 
 import './Splash.css';
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
+import AddStudyPlan from '../AddStudyPlan/AddStudyPlan';
 
 const Splash = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [studyPlanChecker, setStudyPlanChecker] = useState(false);
+
   const studyplans = useSelector((state) => state.studyplans.allStudyplans);
+  const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(fetchAllStudyplans());
-  }, [dispatch]);
+    if(studyPlanChecker) {
+      navigate(`/studyplans/${studyplans[studyplans.length - 1].id}`);
+    }
+    setStudyPlanChecker(false);
+  }, [dispatch, studyPlanChecker]);
 
   if (studyplans.length === 0) {
     return <span className="loader"></span>
   }
 
+  const onModalClose = () => {
+    // setStudyPlanChecker(true);
+  }
+
   return (
     <div className="splash-main-container">
-      <h1>Looking for what to study today?</h1>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "space-between", justifyContent: "space-between" }}>
+        <h1>Looking for what to study today?</h1>
+        {user && (
+          <div className='add-study-plan' style={{ listStyle: "none", alignItems: "center", alignContent: "center" }}>
+            <OpenModalMenuItem
+              itemText={"Create a Study Plan"}
+              modalComponent={<AddStudyPlan userId={user.id} setStudyPlanChecker={setStudyPlanChecker} />}
+              onModalClose={onModalClose}
+            />
+          </div>
+        )}
+      </div>
       <div className='study-plans-container'>
         {studyplans.map((studyplan) => (
           <div key={studyplan.id} onClick={() => navigate(`/studyplans/${studyplan.id}`)}>

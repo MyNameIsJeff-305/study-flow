@@ -8,7 +8,7 @@ export default function NavLogo() {
     const handleNavigate = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        navigate('/home');
+        navigate('/');
     }
 
     return (

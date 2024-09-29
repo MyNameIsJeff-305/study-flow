@@ -1,48 +1,111 @@
+/* Container for the whole Study Plan details page */
 .studyplan-details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f4f4f9;
     padding: 20px;
+    background-color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 96%;
+    margin: 0 auto;
 }
 
+/* Styling for the StudyPlan image */
 .studyplan-image img {
-    max-width: 100%;
-    border-radius: 8px;
+    width: 20%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.studyplan-info {
-    text-align: left;
-    margin-top: 20px;
+/* StudyPlan Information Section */
+.currentStudyplan-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 15vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.studyplan-info h2 {
+.currentStudyplan-info h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+    color: #333;
 }
 
-.studyplan-info p {
+.currentStudyplan-info p {
     margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
 }
 
-.studyplan-exercises {
-    margin-top: 30px;
+/* Styling for the Exercises Section */
+.currentStudyplan-exercises {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.studyplan-exercises h3 {
+.currentStudyplan-exercises h3 {
     font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.studyplan-exercises ul {
+/* Styling for the Exercise Cards */
+.currentStudyplan-exercises ul {
     list-style-type: none;
     padding: 0;
 }
 
-.studyplan-exercises li {
-    background-color: #e4e4e4;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+.currentStudyplan-exercises li {
+    margin-bottom: 10px;
+}
+
+/* Loader styling */
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #ffffff;
+    border-bottom-color: #3498db;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+/* Loader animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .studyplan-details {
+        padding: 15px;
+    }
+
+    .currentStudyplan-info,
+    .currentStudyplan-exercises {
+        padding: 15px;
+    }
+
+    .currentStudyplan-info h2 {
+        font-size: 1.75rem;
+    }
+
+    .currentStudyplan-exercises h3 {
+        font-size: 1.25rem;
+    }
 }
