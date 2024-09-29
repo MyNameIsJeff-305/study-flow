@@ -64,5 +64,16 @@ router.get('/', (req, res) => {
     } else return res.json({ user: null });
 });
 
+//Get all UserExercises associated to a user
+router.get('/:id/exercises', async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: { model: UserExercise }
+    });
+    if (user) {
+        res.json(user);
+    } else {
+        res.status(404).json({ error: 'User not found' });
+    }
+});
 
 module.exports = router;

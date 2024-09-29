@@ -5,7 +5,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Exercise extends Model {
     static associate(models) {
-      Exercise.belongsTo(models.StudyPlan, { foreignKey: 'studyPlanId' });
+      Exercise.belongsTo(models.StudyPlan, { foreignKey: 'studyPlanId', onDelete: 'CASCADE' });
+      Exercise.hasMany(models.UserExercise, { foreignKey: 'exerciseId', onDelete: 'CASCADE' });
     }
   }
   Exercise.init({
@@ -15,7 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     studyPlanId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'StudyPlans',
+        key: 'id'
+      },
+      onDelete: 'CASCADE'
     }
   }, {
     sequelize,

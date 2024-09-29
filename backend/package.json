@@ -8,6 +8,7 @@
     "db:migrate:undo:all": "dotenv sequelize-cli db:migrate:undo:all",
     "db:seed:all": "dotenv sequelize-cli db:seed:all",
     "db:seed:undo:all": "dotenv sequelize-cli db:seed:undo:all",
+    "magic": "dotenv sequelize-cli db:migrate && dotenv sequelize-cli db:seed:all",
     "db:create": "dotenv sequelize-cli db:create",
     "db:drop": "dotenv sequelize-cli db:drop",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed:all",

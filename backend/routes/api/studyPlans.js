@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
     res.json(studyPlans);
 });
 
+//Get the Studyplans created by a specific user
+router.get('/current', requireAuth, async (req, res) => {
+    const studyPlans = await StudyPlan.findAll({
+        where: {
+            createdBy: parseInt(req.user.id)
+        },
+        include: { model: User, attributes: ['username'] }
+    });
+    res.json(studyPlans);
+});
+
 // Get a study plan by ID
 router.get('/:id', async (req, res) => {
     const studyPlan = await StudyPlan.findByPk(req.params.id, {

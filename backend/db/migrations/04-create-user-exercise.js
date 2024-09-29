@@ -1,7 +1,7 @@
 'use strict';
 
 let options = {};
-options.tableName = 'Studyplans';
+options.tableName = 'UserExercises';
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
 }
@@ -15,32 +15,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      subject: {
-        allowNull: false,
-        type: Sequelize.STRING(256)
-      },
-      goal: {
-        allowNull: false,
-        type: Sequelize.STRING(256)
-      },
-      deadline: {
-        allowNull: false,
-        type: Sequelize.STRING(256),
-        defaultValue: ''
-      },
-      createdBy: {
-        allowNull: false,
+      userId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'Users',
           key: 'id'
         },
-        onDelete: 'CASCADE'
       },
-      imageUrl: {
-        allowNull: true,
-        type: Sequelize.STRING(256),
-        defaultValue: 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'
+      exerciseId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Exercises',
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,
@@ -51,6 +40,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+
       }
     });
   },
