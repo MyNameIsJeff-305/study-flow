@@ -1,1 +1,22 @@
-/* TODO: Add sitewide styles */
+:root {
+    --background-color-light: #ffffff;
+    --text-color-light: #000000;
+    --background-color-dark: #181818;
+    --text-color-dark: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color-dark);
+    color: var(--text-color-light);
+}
+
+.app-div-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+    /* gap: 0; */
+}

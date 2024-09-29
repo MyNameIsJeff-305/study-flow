@@ -1,0 +1,15 @@
+.footer-d {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 5px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

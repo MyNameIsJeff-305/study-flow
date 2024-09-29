@@ -13,9 +13,6 @@ const removeUser = () => ({
     type: REMOVE_USER
 });
 
-
-
-
 export const thunkAuthenticate = () => async (dispatch) => {
     try{
         const response = await csrfFetch("/api/restore-user");

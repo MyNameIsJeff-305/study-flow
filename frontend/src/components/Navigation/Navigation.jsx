@@ -1,19 +1,22 @@
-import { NavLink } from "react-router-dom";
+import NavLogo from "./NavLogo";
 import ProfileButton from "./ProfileButton";
+
 import "./Navigation.css";
-import { useSelector } from "react-redux";
+import MenuItems from "./MenuItems";
 
 function Navigation() {
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-
-      <li>
+    <nav className="navigation">
+      <div>
+        <NavLogo />
+      </div>
+      <div>
+        <MenuItems />
+      </div>
+      <div>
         <ProfileButton />
-      </li>
-    </ul>
+      </div>
+    </nav>
   );
 }
 

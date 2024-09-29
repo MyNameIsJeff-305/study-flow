@@ -1,0 +1,22 @@
+.logo-main {
+    width: 80px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.logo-main:hover {
+    transform: scale(1.05);
+}
+
+.logo-mobile {
+    display: none;
+}
+
+.logo-mobile:hover {
+    transform: scale(1.05);
+}

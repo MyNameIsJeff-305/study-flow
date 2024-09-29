@@ -1,0 +1,76 @@
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+button:hover {
+    color: #61dafb;
+    /* Add hover effect */
+}
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    /* Position relative to the button */
+    right: 0;
+    background-color: #3CA3EA;
+    border-radius: 5px;
+    padding: 10px;
+    list-style-type: none;
+    min-width: 150px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-dropdown li {
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.profile-dropdown li:hover {
+    background-color: #53afec;
+}
+
+/* Dropdown Button for Log In and Sign Up */
+.profile-dropdown button {
+    background-color: #ff4757;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.profile-dropdown button:hover {
+    background-color: #ff6b81;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile-dropdown {
+        top: 40px;
+        right: 0;
+        width: 100%;
+        box-shadow: none;
+        text-align: right;
+    }
+
+    .profile-dropdown li {
+        padding: 12px 15px;
+    }
+
+    button {
+        font-size: 1.25rem;
+    }
+}

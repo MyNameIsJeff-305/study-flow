@@ -1,0 +1,47 @@
+/* Main container for the Splash page */
+.splash-main-container {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #404042;
+    min-height: 80vh;
+}
+
+/* Heading styles */
+.splash-main-container h1 {
+    font-size: 2.5rem;
+    color: #f9f9f9;
+    margin-bottom: 40px;
+}
+
+/* Container for the study plans */
+.study-plans-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    overflow: scroll;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #06154e;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .splash-main-container h1 {
+        font-size: 2rem;
+    }
+
+    .study-plans-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
