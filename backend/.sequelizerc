@@ -1,3 +1,4 @@
+// backend/.sequelizerc
 const path = require('path');
 
 module.exports = {
