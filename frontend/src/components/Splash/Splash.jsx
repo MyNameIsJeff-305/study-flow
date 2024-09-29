@@ -30,6 +30,8 @@ const Splash = () => {
     // setStudyPlanChecker(true);
   }
 
+  // console.log(user.user.id, "THIS IS THE USER");
+
   return (
     <div className="splash-main-container">
       <div style={{ display: "flex", flexDirection: "row", alignItems: "space-between", justifyContent: "space-between" }}>
@@ -38,7 +40,7 @@ const Splash = () => {
           <div className='add-study-plan' style={{ listStyle: "none", alignItems: "center", alignContent: "center" }}>
             <OpenModalMenuItem
               itemText={"Create a Study Plan"}
-              modalComponent={<AddStudyPlan userId={user.id} setStudyPlanChecker={setStudyPlanChecker} />}
+              modalComponent={<AddStudyPlan userId={user.user?.id || user.id} setStudyPlanChecker={setStudyPlanChecker} />}
               onModalClose={onModalClose}
             />
           </div>

@@ -44,6 +44,8 @@ export default function AddStudyPlan({ userId, setStudyPlanChecker }) {
         setIsButtonDisabled(Object.keys(newErrors).length > 0);
     }, [subject, goal, deadline]);
 
+    // console.log(userId, "THIS IS THE USER ID");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -83,9 +85,9 @@ export default function AddStudyPlan({ userId, setStudyPlanChecker }) {
         <form className="studyplan-form" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="subject">Subject</label>
-                <input
+                <textarea
                     id="subject"
-                    type="text"
+                    type="textarea"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     className={errors.subject ? 'input-error' : ''}

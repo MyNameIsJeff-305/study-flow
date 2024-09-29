@@ -7,27 +7,28 @@ export default function ExerciseCard({ exercise, userId }) {
     const dispatch = useDispatch();
 
     const completionInfo = useSelector((state) => state.userExercises.currentUserUserExercises);
+    const user = useSelector((state) => state.session.user);
     const [isChecked, setIsChecked] = useState(false);
-    
+
     useEffect(() => {
         dispatch(fetchCurrentUserUserExercises(userId));
-    }, [dispatch, userId]);
-    
+    }, [dispatch, userId, user]);
+
     const thisExercise = completionInfo.find((userExercise) => userExercise.exerciseId === exercise.id);
-    
+
     useEffect(() => {
-        if(!isChecked && thisExercise) {
+        if (!isChecked && thisExercise) {
             setIsChecked(true);
         }
         if (isChecked && !thisExercise) {
             dispatch(addUserExerciseThunk(exercise.id, userId));
         }
     }, [isChecked, thisExercise, dispatch, exercise.id, userId]);
-    
-    if(!completionInfo) {
+
+    if (!completionInfo) {
         return <div>loading...</div>;
     }
-    
+
 
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
@@ -35,12 +36,14 @@ export default function ExerciseCard({ exercise, userId }) {
 
     return (
         <div className="exercise-card-container">
-            <input
-                type="checkbox"
-                checked={isChecked}
-                disabled={isChecked}
-                onChange={handleCheckboxChange}
-            />
+            {user && (
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    disabled={isChecked}
+                    onChange={handleCheckboxChange}
+                />
+            )}
             <h3>{exercise.exercise}</h3>
         </div>
     );

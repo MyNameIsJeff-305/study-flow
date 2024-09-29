@@ -12,8 +12,9 @@ export default function NavLogo() {
     }
 
     return (
-        <div className='nav-logo-container' onClick={(e) => handleNavigate(e)}>
+        <div className='nav-logo-container' onClick={(e) => handleNavigate(e)} style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
             <img src="/public/logo-only.png" className='logo-main' alt='logo'></img>
+            <h1>studyFlow</h1>
         </div>
     );
 }

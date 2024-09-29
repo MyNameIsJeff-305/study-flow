@@ -40,6 +40,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', requireAuth, async (req, res, next) => {
     const { subject, goal, deadline, createdBy, imageUrl } = req.body;
 
+    // console.log(createdBy, "THIS IS THE CREATED BY");
+
     try {
         // Step 1: Create the new study plan
         const studyPlan = await StudyPlan.create({ subject, goal, deadline, createdBy });
@@ -91,7 +93,7 @@ async function generateExercisesFromAI(subject, goal, deadline) {
       Provide the exercises in bullet points. The exercises format must be only single bullet points, and you must only answer with the bullet points` }],
         });
 
-        console.log();
+        // console.log();
         const exercises = response.choices[0].message.content.trim().split('\n').filter(Boolean);
 
         for(let exercise of exercises){

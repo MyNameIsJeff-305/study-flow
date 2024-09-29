@@ -53,11 +53,6 @@ function ProfileButton() {
             <>
               <li>{user.username}</li>
               <li>{user.email}</li>
-              <OpenModalMenuItem 
-                itemText="Create a Study Plan"
-                onItemClick={closeMenu}
-                modalComponent={<AddStudyPlan userId={user.id}/>}
-              />
               <li>
                 <button onClick={logout}>Log Out</button>
               </li>

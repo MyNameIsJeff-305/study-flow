@@ -13,7 +13,7 @@ export default function StudyPlanDetails() {
 
     const { studyplanId } = useParams();
 
-    console.log(studyplanId);
+    // console.log(studyplanId);
 
     const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ export default function StudyPlanDetails() {
 
     useEffect(() => {
         dispatch(fetchOneStudyplan(parseInt(studyplanId)));
-        dispatch(fetchCurrentUserUserExercises(currentUser.id));
+        dispatch(fetchCurrentUserUserExercises(currentUser?.id));
     }, [dispatch, studyplanId])
 
     if (!currentStudyplan) {
@@ -53,7 +53,7 @@ export default function StudyPlanDetails() {
                 <h3>Exercises</h3>
                 <ul>
                     {currentStudyplan.Exercises?.map((exercise) => (
-                        <ExerciseCard key={exercise.id} exercise={exercise} userId={currentUser.id} />
+                        <ExerciseCard key={exercise.id} exercise={exercise} userId={currentUser?.id} />
                     ))}
                 </ul>
             </div>
