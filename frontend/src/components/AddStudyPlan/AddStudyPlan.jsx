@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { createStudyplan } from "../../redux/studyplans";
+import './AddStudyPlan.css'; // Importing the CSS for styling
 
 export default function AddStudyPlan({ userId, setStudyPlanChecker }) {
     const dispatch = useDispatch();
@@ -79,48 +80,52 @@ export default function AddStudyPlan({ userId, setStudyPlanChecker }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className="studyplan-form" onSubmit={handleSubmit}>
+            <div className="form-group">
                 <label htmlFor="subject">Subject</label>
                 <input
                     id="subject"
                     type="text"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
+                    className={errors.subject ? 'input-error' : ''}
                 />
-                {errors.subject && <div>{errors.subject}</div>}
+                {errors.subject && <div className="error-message">{errors.subject}</div>}
             </div>
-            <div>
+            <div className="form-group">
                 <label htmlFor="goal">Goal</label>
                 <input
                     id="goal"
                     type="text"
                     value={goal}
                     onChange={(e) => setGoal(e.target.value)}
+                    className={errors.goal ? 'input-error' : ''}
                 />
-                {errors.goal && <div>{errors.goal}</div>}
+                {errors.goal && <div className="error-message">{errors.goal}</div>}
             </div>
-            <div>
+            <div className="form-group">
                 <label htmlFor="deadline">Deadline</label>
                 <input
                     id="deadline"
                     type="text"
                     value={deadline}
                     onChange={(e) => setDeadline(e.target.value)}
+                    className={errors.deadline ? 'input-error' : ''}
                 />
-                {errors.deadline && <div>{errors.deadline}</div>}
+                {errors.deadline && <div className="error-message">{errors.deadline}</div>}
             </div>
-            <div>
+            <div className="form-group">
                 <label htmlFor="imageUrl">Image URL</label>
                 <input
                     id="imageUrl"
                     type="text"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
+                    className={errors.imageUrl ? 'input-error' : ''}
                 />
-                {errors.imageUrl && <div>{errors.imageUrl}</div>}
+                {errors.imageUrl && <div className="error-message">{errors.imageUrl}</div>}
             </div>
-            <button type="submit" disabled={isButtonDisabled}>Create Study Plan</button>
+            <button className="submit-button" type="submit" disabled={isButtonDisabled}>Create Study Plan</button>
         </form>
     )
 }

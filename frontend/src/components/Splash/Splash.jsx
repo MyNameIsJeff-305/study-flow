@@ -19,9 +19,6 @@ const Splash = () => {
 
   useEffect(() => {
     dispatch(fetchAllStudyplans());
-    if(studyPlanChecker) {
-      navigate(`/studyplans/${studyplans[studyplans.length - 1].id}`);
-    }
     setStudyPlanChecker(false);
   }, [dispatch, studyPlanChecker]);
 
