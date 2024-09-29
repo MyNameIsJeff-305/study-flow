@@ -10,11 +10,11 @@ The idea for **StudyFlow** emerged from the challenges many students and profess
 
 ## How we built it
 
-We built **StudyFlow** using a combination of **Express** and **Sequelize** on the backend, managing user data and study plans in a structured, scalable way. The frontend was built with **React** and **Redux**, allowing for seamless state management and a responsive user interface. We integrated AI to dynamically generate study plans and exercises tailored to each user’s unique needs and preferences, making the experience highly personalized.
+We built **StudyFlow** using a combination of **Express** and **Sequelize** on the backend, managing user data and study plans in a structured, scalable way. The frontend was built with **React** and **Redux**, allowing for seamless state management and a responsive user interface. We integrated **OpenAI API** to dynamically generate study plans and exercises tailored to each user’s unique needs and preferences, making the experience highly personalized.
 
 ## Challenges we ran into
 
-One of the major challenges we faced was optimizing the AI-generated study plans to ensure they were both effective and personalized. It took multiple iterations of AI prompt design to generate plans that felt tailored to users’ needs. Another challenge was balancing state management in React-Redux, especially when handling real-time updates for study plans and exercises. We also had to find the right balance between automation and user control, ensuring that users felt empowered by the AI suggestions.
+One of the major challenges we faced was optimizing the AI-generated study plans to ensure they were both effective and personalized. Obviously, this is an enhancement we will work in the future, considering new prompts depending on the subject the user inputs. It took multiple iterations of AI prompt design to generate plans that felt tailored to users’ needs. Another challenge was balancing state management in React-Redux, especially when handling real-time updates for study plans and exercises. We also had to find the right balance between automation and user control, ensuring that users felt empowered by the AI suggestions.
 
 ## Accomplishments that we're proud of
 
@@ -26,4 +26,4 @@ Throughout the development process, we learned a lot about **AI prompt engineeri
 
 ## What's next for StudyFlow
 
-Moving forward, we plan to enhance **StudyFlow** by incorporating more advanced AI features, such as analyzing user progress over time and adapting study plans accordingly. We’re also exploring ways to integrate additional learning resources and content recommendations to further support users in achieving their goals. Finally, we aim to improve the UI/UX design to make StudyFlow even more intuitive and engaging for users.
+Moving forward, we plan to enhance **StudyFlow** by incorporating more advanced AI features, such as analyzing user progress over time and adapting study plans accordingly. We’re also exploring ways to integrate additional learning resources and content recommendations to further support users in achieving their goals. Another short-term future enhancement is incorporate AWS S3 for image and files management (this is a feature we didn't decide to include it for this hackathon due to the time restrictions), because we want to generate Study Plans amd exercises in PDF format, so users can download them and print them, for a better on-the-go experience. Also, we would like to add more features, like have Subjects as a Table in the Database Model, this enhancement will allow us to improve how AI understands the purpose of every request, and we can allow users to create their own Subjects Collections for a better management of their studyplans. Finally, we aim to improve the UI/UX design to make StudyFlow even more intuitive and engaging for users.
