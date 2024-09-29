@@ -4,12 +4,11 @@
   "description": "## Database Schema Design",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express-validator": "^7.0.1",
     "lodash": "^4.17.21",
-    "validator": "^13.12.0",
-    "dotenv": "^16.4.5"
+    "validator": "^13.12.0"
   },
-  "devDependencies": {},
   "scripts": {
     "install": "npm --prefix backend install backend",
     "dev:backend": "npm install --prefix backend start",
