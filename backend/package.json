@@ -6,7 +6,7 @@
   "scripts": {
     "db:migrate": "sequelize-cli db:migrate",
     "db:migrate:undo:all": "dotenv sequelize-cli db:migrate:undo:all",
-    "db:seed:all": "dotenv sequelize-cli db:seed:all",
+    "db:seed:all": "sequelize-cli db:seed:all",
     "db:seed:undo:all": "dotenv sequelize-cli db:seed:undo:all",
     "db:create": "dotenv sequelize-cli db:create",
     "db:drop": "dotenv sequelize-cli db:drop",
