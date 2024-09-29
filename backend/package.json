@@ -13,7 +13,7 @@
     "magic": "npm run migrate && npm run seed",
     "start:development": "nodemon ./bin/www",
     "start:production": "dotenv node ./bin/www",
-    "build": "dotenv node psql-setup-script.js"
+    "build": "dotenv -e .env node psql-setup-script.js"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.4.2",
     "nodemon": "^3.1.4",
     "sqlite3": "^5.1.7"
   }
